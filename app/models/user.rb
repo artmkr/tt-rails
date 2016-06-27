@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :requests
   has_many :projects, through: :requests
+
+  has_many :memberships
+  has_many :projects, through: :memberships
 end
