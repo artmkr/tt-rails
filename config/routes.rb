@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :projects
+  resources :projects do 
+    resources :requests, only: [:create, :destroy] do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

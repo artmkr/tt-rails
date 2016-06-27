@@ -15,5 +15,14 @@
   <%= @project.short_description %>
 </p>
 
+<p>
+  <strong>Requests:</strong>
+  <br>
+  <% @project.requests.each do |request| %>
+    <%= request.user.email %> | <%= link_to "Delete", project_request_path(@project,request), method: :delete %> <br> 
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %> |
+<%= link_to "Request", project_requests_path(@project), method: :post %>
