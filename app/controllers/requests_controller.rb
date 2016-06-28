@@ -3,8 +3,8 @@ class RequestsController < ApplicationController
   before_action :set_project
   before_action :set_request, only: [:accept, :decline, :destroy]
   before_action :check_request, only: [:accept, :decline, :destroy]
-  before_action :authorize_user, only: [:edit, :update, :destroy]
-
+  before_action :authorize_user, only: [:destroy]
+  before_action :authorize_author, only: [:accept, :decline]
   def create
     @project.requests.new(user: current_user, status: 'pending')
 
@@ -57,7 +57,14 @@ class RequestsController < ApplicationController
     end
 
     def authorize_user
-      @requests = current_user.requests.find_by(id: params[:id])
-      redirect_to projects_path, notice: "Not authorized to edit this project" if @project.nil?
+      unless current_user == @request.user 
+        redirect_to @project, notice: "Not authorized to Delete request"
+      end 
+    end
+
+    def authorize_author
+      unless current_user == @project.user 
+        redirect_to @project, notice: "Not authorized to accept or decline"
+      end 
     end
 end

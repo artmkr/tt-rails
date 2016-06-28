@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <%= @project.user.email %>
+</p>
+
+<p>
   <strong>Requests:</strong>
   <br>
   <% @project.requests.each do |request| %>
