@@ -1,0 +1,18 @@
+<%= @user.email %>
+
+
+<p>
+  <strong>Requests:</strong>
+  <br>
+  <% @user.requests.each do |request| %>
+    <%= request.project.name %> (<%= request.status %> )| <%= link_to "Delete", project_request_path(request.project,request), method: :delete %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <br>
+  <% @user.memberships.each do |membership| %>
+    <%= membership.project.name %> | <%= link_to "Leave", project_membership_path(membership.project,membership), method: :delete %> <br> 
+  <% end %>
+</p>

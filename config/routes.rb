@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  
   devise_for :users
+  resources :users, only: [:show]
+
   resources :projects do 
     resources :requests, only: [:create, :destroy] do
       member do
