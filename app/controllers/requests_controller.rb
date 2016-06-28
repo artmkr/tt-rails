@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
   before_action :set_project
   before_action :set_request, only: [:accept, :decline, :destroy]
   before_action :check_request, only: [:accept, :decline, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def create
     @project.requests.new(user: current_user, status: 'pending')
@@ -53,5 +54,10 @@ class RequestsController < ApplicationController
 
     def check_request
       redirect_to @project, notice: "Request not pending" if @request.status != 'pending'
+    end
+
+    def authorize_user
+      @requests = current_user.requests.find_by(id: params[:id])
+      redirect_to projects_path, notice: "Not authorized to edit this project" if @project.nil?
     end
 end
