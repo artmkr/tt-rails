@@ -1,10 +1,12 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_project
   before_action :set_request, only: [:accept, :decline, :destroy]
-  before_action :authenticate_user!
+  before_action :check_request, only: [:accept, :decline, :destroy]
 
   def create
-    @project.requests.new(user: current_user)
+    @project.requests.new(user: current_user, status: 'pending')
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Request was successfully sent.' }
@@ -25,7 +27,7 @@ class RequestsController < ApplicationController
     @project.memberships.new(user: @request.user)
     respond_to do |format|
       if @project.save
-        @request.destroy
+        @request.update(status: 'accepted') 
         format.html { redirect_to @project, notice: 'User was successfully added' }
       else
         format.html { redirect_to @project, notice: 'Something went wrong' }
@@ -33,8 +35,8 @@ class RequestsController < ApplicationController
     end
   end
 
-  def decline 
-    @request.destroy
+  def decline
+    @request.update(status: 'declined') 
     respond_to do |format|
       format.html { redirect_to @project, notice: 'User was successfully declined' }
     end
@@ -47,5 +49,9 @@ class RequestsController < ApplicationController
 
     def set_request
       @request = Request.find(params[:id])
+    end
+
+    def check_request
+      redirect_to @project, notice: "Request not pending" if @request.status != 'pending'
     end
 end
