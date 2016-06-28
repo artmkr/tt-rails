@@ -19,7 +19,9 @@
   <strong>Requests:</strong>
   <br>
   <% @project.requests.each do |request| %>
-    <%= request.user.email %> | <%= link_to "Delete", project_request_path(@project,request), method: :delete %> <br> 
+    <%= request.user.email %> | <%= link_to "Delete", project_request_path(@project,request), method: :delete %> 
+    | <%= link_to "Accept", accept_project_request_path(@project,request), method: :patch %>
+    | <%= link_to "Decline", decline_project_request_path(@project,request), method: :patch %><br> 
   <% end %>
 </p>
 

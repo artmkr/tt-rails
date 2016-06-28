@@ -5,14 +5,11 @@ class RequestsController < ApplicationController
 
   def create
     @project.requests.new(user: current_user)
-
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Request was successfully sent.' }
-        format.json { render :'project/show', status: :sent, location: @project }
       else
         format.html { redirect_to @project, notice: 'Something went wrong' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -20,17 +17,27 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to project_path(@project), notice: 'Request was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to @project, notice: 'Request was successfully destroyed.' }
     end
   end
 
   def accept
-
+    @project.memberships.new(user: @request.user)
+    respond_to do |format|
+      if @project.save
+        @request.destroy
+        format.html { redirect_to @project, notice: 'User was successfully added' }
+      else
+        format.html { redirect_to @project, notice: 'Something went wrong' }
+      end
+    end
   end
 
   def decline 
-    
+    @request.destroy
+    respond_to do |format|
+      format.html { redirect_to @project, notice: 'User was successfully declined' }
+    end
   end
 
   private
