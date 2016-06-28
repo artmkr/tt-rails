@@ -3,11 +3,18 @@ class MembershipsController < ApplicationController
   before_action :set_membership, only: [:accept, :decline, :destroy]
 
   def destroy
-    @membership.destroy
-    respond_to do |format|
-      format.html { redirect_to project_path(@project), notice: 'Membership was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    unless @membership.user == @project.user
+      @membership.destroy
+      respond_to do |format|
+        format.html { redirect_to project_path(@project), notice: 'Membership was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+     respond_to do |format|
+        format.html { redirect_to project_path(@project), notice: 'You can\'t delete yourself' }
+        format.json { head :no_content }
+      end
+    end 
   end
 
   private

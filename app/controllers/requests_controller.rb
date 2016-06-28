@@ -2,22 +2,18 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
   before_action :set_request, only: [:accept, :decline, :destroy]
-  before_action :check_request, only: [:accept, :decline, :destroy]
+  before_action :check_request_status, only: [:accept, :decline, :destroy]
   before_action :authorize_user, only: [:destroy]
   before_action :authorize_author, only: [:accept, :decline]
 
   def create
-    if (@project.requests.exists?(user: current_user) || @project.memberships.exists?(user: current_user))
-      redirect_to @project, notice: "Request was already sent"
-    else
-      @project.requests.new(user: current_user, status: 'pending')
+    @project.requests.new(user: current_user, status: 'pending')
 
-      respond_to do |format|
-        if @project.save
-          format.html { redirect_to @project, notice: 'Request was successfully sent.' }
-        else
-          format.html { redirect_to @project, notice: 'Something went wrong' }
-        end
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to @project, notice: 'Request was successfully sent.' }
+      else
+        format.html { redirect_to @project, notice: 'Something went wrong' }
       end
     end
   end
@@ -61,7 +57,7 @@ class RequestsController < ApplicationController
       @request = Request.find(params[:id])
     end
 
-    def check_request
+    def check_request_status
       redirect_to @project, notice: "Request not pending" if @request.status != 'pending'
     end
 
@@ -69,6 +65,12 @@ class RequestsController < ApplicationController
       unless current_user == @request.user 
         redirect_to @project, notice: "Not authorized to Delete request"
       end 
+    end
+
+    def check_new_request
+      if (@project.requests.exists?(user: current_user) || @project.memberships.exists?(user: current_user))
+        redirect_to @project, notice: "Request was already sent"
+      end
     end
 
     def authorize_author
