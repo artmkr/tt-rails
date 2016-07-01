@@ -40,6 +40,7 @@ gem 'redcarpet'
 
 # Bootstrap 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'devise-bootstrap-views'
 
 
 group :development, :test do
