@@ -2,8 +2,8 @@
   <div class="col-md-4">
     <center>
       <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-      <h3 class="media-heading">Joe Sixpack
-          <small>USA</small>
+      <h3 class="media-heading">
+        Joe Sixpack
       </h3>
       <a href="https://twitter.com/bootdey" class="btn btn-info btn-xs">
         <i class="fa fa-twitter"></i>
@@ -13,13 +13,27 @@
         <i class="fa fa-facebook"></i>
         Facebook
       </a>
-      <a href="https://plus.google.com/+Bootdey-bootstrap/posts" class="btn btn-danger btn-xs">
-        <i class="fa fa-google-plus"></i>
-        Google +
+      <a href="https://plus.google.com/+Bootdey-bootstrap/posts" class="btn btn-github btn-xs">
+        <i class="fa fa-github"></i>
+        GitHub
       </a>
     </center>
   </div>
-  <div class="com-md-8">
-    
+  <div class="col-md-8">
+    <div class="about">
+    <h3>About</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et in voluptate dolor ipsum eum blanditiis quam, perferendis libero dolorem eos nobis recusandae consequatur doloremque dignissimos inventore, necessitatibus hic voluptatem earum?</p>
+    </div>
+    <div class="projects">
+      <h3>Projects</h3>
+      <% @user.memberships.each do |membership| %>
+        <div class="project">
+          <h4><%= link_to membership.project.name, membership.project %></h4>
+            <p><%= membership.project.short_description %></p>
+            <a href='#' class="label label-default">alice</a>
+          <hr>
+        </div>
+      <% end %>  
+    </div>
   </div>
 </div>
