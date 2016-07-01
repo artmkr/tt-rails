@@ -5,3 +5,26 @@
 .project-form {
   margin-bottom: 20px;
 }
+
+.project {
+  .project-name {
+    border-bottom: 1px solid #ddd;
+  }
+  .user {
+    overflow: hidden;
+    .name {
+      line-height: 50px;
+    }
+  }
+
+  .user + .user {
+    margin-top: 15px; 
+  }
+
+  .avatar {
+    margin-right: 10px; 
+    width: 50px;
+    height: auto;
+    clear: both;
+  }
+}

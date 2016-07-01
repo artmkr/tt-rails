@@ -1,16 +1,25 @@
-<%= @user.email %>
-<p>
-  <strong>Requests:</strong>
-  <br>
-  <% @user.requests.each do |request| %>
-    <%= request.project.name %> (<%= request.status %> )| <%= link_to "Delete", project_request_path(request.project,request), method: :delete %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <br>
-  <% @user.memberships.each do |membership| %>
-    <%= membership.project.name %> | <%= link_to "Leave", project_membership_path(membership.project,membership), method: :delete %> <br> 
-  <% end %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <center>
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+      <h3 class="media-heading">Joe Sixpack
+          <small>USA</small>
+      </h3>
+      <a href="https://twitter.com/bootdey" class="btn btn-info btn-xs">
+        <i class="fa fa-twitter"></i>
+        Twitter
+      </a>
+      <a href="https://facebook.com/bootdey" class="btn btn-primary btn-xs">
+        <i class="fa fa-facebook"></i>
+        Facebook
+      </a>
+      <a href="https://plus.google.com/+Bootdey-bootstrap/posts" class="btn btn-danger btn-xs">
+        <i class="fa fa-google-plus"></i>
+        Google +
+      </a>
+    </center>
+  </div>
+  <div class="com-md-8">
+    
+  </div>
+</div>

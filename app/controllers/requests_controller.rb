@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:accept, :decline, :destroy]
 
   before_action :check_request_status, only: [:accept, :decline, :destroy]
-  before_action :check_new_request, only: [:create]
+  before_action :new_request?, only: [:create]
 
   before_action :authorize_user, only: [:destroy]
   before_action :authorize_author, only: [:accept, :decline]
@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
       redirect_to @project, notice: "Request not pending" if @request.status != 'pending'
     end
 
-    def check_new_request
+    def new_request?
       if (@project.requests.exists?(user: current_user) || @project.memberships.exists?(user: current_user))
         redirect_to @project, notice: "Request was already sent"
       end

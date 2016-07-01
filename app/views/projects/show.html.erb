@@ -1,41 +1,31 @@
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= markdown(@project.description) %>
-</p>
-
-<p>
-  <strong>Short description:</strong>
-  <%= @project.short_description %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @project.user.email %>
-</p>
-
-<p>
-  <strong>Requests:</strong>
-  <br>
-  <% @project.requests.each do |request| %>
-    <%= request.user.email %> (<%= request.status %> )| <%= link_to "Delete", project_request_path(@project,request), method: :delete %> 
-    | <%= link_to "Accept", accept_project_request_path(@project,request), method: :patch %>
-    | <%= link_to "Decline", decline_project_request_path(@project,request), method: :patch %><br> 
-  <% end %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <br>
-  <% @project.memberships.each do |membership| %>
-    <%= membership.user.email %> | <%= link_to "Delete", project_membership_path(@project,membership), method: :delete %> <br> 
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to "Request", project_requests_path(@project), method: :post %>
+<div class="row">
+  <div class="project">
+    <div class="col-md-9">
+      <h1 class="project-name"><%= @project.name %>
+        <span class="btn-group pull-right">
+          <% if new_request?(@project) %>
+            <%= link_to 'Send requests', project_requests_path(@project), class: 'btn btn-default', :method => :post %>
+          <% end %>
+        </span>
+      </h1>
+      <div class="description">  
+        <%= markdown(@project.description) %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Team</h3>
+        </div>
+        <div class="panel-body">
+          <% @project.memberships.each do |membership| %>
+            <div class="user">
+              <img src="http://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle pull-left avatar" alt="Avatar">
+              <a href="#" class="name"><%= membership.user.email %></a>
+            </div>
+          <% end %>            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
