@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   has_many :projects, through: :memberships
 
   has_many :projects
+
+  mount_uploader :avatar, AvatarUploader
 end

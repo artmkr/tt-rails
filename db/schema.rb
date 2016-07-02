@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702090650) do
+ActiveRecord::Schema.define(version: 20160702175421) do
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160702090650) do
     t.string   "github"
     t.string   "twitter"
     t.string   "facebook"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

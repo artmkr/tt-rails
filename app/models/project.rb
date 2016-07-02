@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
   validates :name, presence: true, length: {minimum: 3}
   validates :description, presence: true
-  validates :short_description, presence: true, length: {minimum: 20}
+  validates :short_description, presence: true, length: {minimum: 10}
 
   self.per_page = 10
 end

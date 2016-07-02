@@ -42,6 +42,10 @@ gem 'redcarpet'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
 
+#avatar
+gem 'carrierwave'
+
+
 
 # Bootstrap 
 gem 'bootstrap-sass', '~> 3.3.6'
