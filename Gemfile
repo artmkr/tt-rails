@@ -45,6 +45,10 @@ gem 'will_paginate-bootstrap'
 #avatar
 gem 'carrierwave'
 
+#tags
+gem 'acts-as-taggable-on', '~> 3.4'
+
+
 
 
 # Bootstrap 

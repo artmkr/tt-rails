@@ -11,5 +11,7 @@ class Project < ActiveRecord::Base
   validates :description, presence: true
   validates :short_description, presence: true, length: {minimum: 10}
 
+  acts_as_taggable
+  
   self.per_page = 10
 end
