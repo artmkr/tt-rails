@@ -5,24 +5,34 @@
       <h3 class="media-heading">
         <%= @user.name %>
       </h3>
-      <a href="https://twitter.com/bootdey" class="btn btn-info btn-xs">
+
+      <% unless @user.twitter.blank? %>
+      <a href="https://twitter.com/<%=@user.twitter %> " class="btn btn-info btn-xs">
         <i class="fa fa-twitter"></i>
         Twitter
       </a>
-      <a href="https://facebook.com/bootdey" class="btn btn-primary btn-xs">
+      <% end %>
+      <% unless @user.facebook.blank? %>
+      <a href="https://facebook.com/<%=@user.facebook %> " class="btn btn-primary btn-xs">
         <i class="fa fa-facebook"></i>
         Facebook
       </a>
-      <a href="https://plus.google.com/+Bootdey-bootstrap/posts" class="btn btn-github btn-xs">
+      <% end %>
+      <% unless @user.github.blank? %>
+      <a href="https://github.com/<%=@user.github %> " class="btn btn-github btn-xs">
         <i class="fa fa-github"></i>
         GitHub
       </a>
+      <% end %>
+
     </center>
   </div>
   <div class="col-md-8">
     <div class="about">
     <h3>About</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et in voluptate dolor ipsum eum blanditiis quam, perferendis libero dolorem eos nobis recusandae consequatur doloremque dignissimos inventore, necessitatibus hic voluptatem earum?</p>
+    <p>
+    <%= @user.about %>
+    </p>
     </div>
     <div class="projects">
       <h3>Projects</h3>
