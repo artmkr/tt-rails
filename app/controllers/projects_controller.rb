@@ -63,6 +63,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def like
+    @project.upvote_by current_user
+    redirect_to @project
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
