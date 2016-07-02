@@ -6,4 +6,9 @@ class Project < ActiveRecord::Base
 
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
+
+  validates :name, presence: true, length: {minimum: 3}
+  validates :description, presence: true
+  validates :short_description, presence: true, length: {minimum: 20}
+
 end
