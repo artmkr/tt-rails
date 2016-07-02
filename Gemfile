@@ -38,6 +38,11 @@ gem 'devise'
 # Markdown
 gem 'redcarpet'
 
+# Pagination
+gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'
+
+
 # Bootstrap 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise-bootstrap-views'
