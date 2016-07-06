@@ -9,7 +9,29 @@
 .project {
   .project-name {
     border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    line-height: 35px;
+    font-size: 300%;
   }
+
+  .menu-link {
+    display: block;
+    background-color: #eee;
+    margin-bottom: 10px;
+    
+    font-size: 20px;
+
+    img {
+      width: auto;
+      height: 32px;
+    }
+    
+    &:active,&:hover {
+      background-color: #ddd;
+    }
+  }
+
+
   .user {
     overflow: hidden;
     .name {
@@ -23,8 +45,14 @@
 
   .avatar {
     margin-right: 10px; 
-    width: 50px;
+    max-width: 50px;
     height: auto;
     clear: both;
   }
 }
+
+.project-name {
+  font-weight: 500;
+  font-size: 200%;
+}
+
