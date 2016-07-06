@@ -56,7 +56,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise-bootstrap-views'
 gem "font-awesome-rails"
 
-
+gem 'nested_scaffold'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
