@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  has_many :notes
   belongs_to :user
 
   has_many :requests, dependent: :destroy
