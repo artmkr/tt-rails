@@ -1,6 +1,9 @@
 class NotesController < ApplicationController
-  before_action :set_notes
+  before_action :set_project
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_user, only: [:show, :index]
+  before_action :authorize_author, except: [:show, :index]
 
   # GET projects/1/notes
   def index
@@ -49,7 +52,7 @@ class NotesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_notes
+    def set_project
       @project = Project.find(params[:project_id])
     end
 
@@ -60,5 +63,15 @@ class NotesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def note_params
       params.require(:note).permit(:title, :body)
+    end
+
+    def authorize_user
+      unless @project.memberships.exists?(user: current_user)
+        redirect_to projects_path, notice: "Not authorized to look at this notes"
+      end
+    end
+
+    def authorize_author
+      redirect_to projects_path, notice: "Not authorized to edit this note" unless @project.user == current_user
     end
 end
