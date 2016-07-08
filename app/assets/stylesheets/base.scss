@@ -1,8 +1,8 @@
 .footer {
-  border-top:1px solid #ddd;
   width: 100%;
   padding: 30px;
-
+  
+  background-color: $brand-primary;
   .footer-links {
     margin-left:0;
     padding-bottom:15px;
@@ -10,6 +10,9 @@
     padding-left:0;
     li {
       display: inline-block;
+      a {
+        color: $gray-lighter;
+      }
     }
     li+li {
       margin-left: 15px;

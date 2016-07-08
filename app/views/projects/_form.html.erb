@@ -1,45 +1,63 @@
-<%= form_for @project, :html => { :class => "project-form" } do |f| %>
-  <% if @project.errors.any? %>
-    <div class="alert alert-danger fade in" role="alert">
-    <button class="close" data-dismiss="alert">×</button>
-    <ul>
-    <% @project.errors.full_messages.each do |message| %>
-      <li><%= message %></li> 
+<%= form_for @project, :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <legend><%= title %></legend>
+
+    <% if @project.errors.any? %>
+      <div class="alert alert-danger fade in" role="alert">
+      <button class="close" data-dismiss="alert">×</button>
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li> 
+      <% end %>
+      </ul>
+      </div>
     <% end %>
-    </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control"  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control"  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :short_description %><br>
-    <%= f.text_area :short_description, class: "form-control"  %>
-  </div>
-  
     <div class="form-group">
-    <%= f.label :slack %><br>
-    <%= f.text_field :slack, class: "form-control"  %>
-  </div>
+      <%= f.label :name, :class => "control-label col-lg-2" %><br>
+      <div class="col-lg-10">
+        <%= f.text_field :name, class: "form-control"  %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :trello %><br>
-    <%= f.text_field :trello, class: "form-control"  %>
-  </div>
+    <div class="form-group">
+      <%= f.label :description, :class => "control-label col-lg-2" %><br>
+      <div class="col-lg-10">
+        <%= f.text_area :description, class: "form-control"  %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :tag_list %><br>
-    <%= f.text_area :tag_list, class: "form-control"  %>
-  </div>
+    <div class="form-group">
+      <%= f.label :short_description, :class => "control-label col-lg-2" %><br>
+      <div class="col-lg-10">
+        <%= f.text_area :short_description, class: "form-control"  %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :slack, :class => "control-label col-lg-2" %><br>
+      <div class="col-lg-10">
+        <%= f.text_field :slack, class: "form-control"  %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit class:"btn btn-default" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :trello, :class => "control-label col-lg-2" %><br>
+      <div class="col-lg-10">
+        <%= f.text_field :trello, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tag_list, :class => "control-label col-lg-2" %><br>
+      <div class="col-lg-10">
+        <%= f.text_area :tag_list, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class:"btn btn-primary" %>
+    </div>
+    
+  </fieldset>
 <% end %>

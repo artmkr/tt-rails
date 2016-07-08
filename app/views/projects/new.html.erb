@@ -1,4 +1,7 @@
 <div class="row">
-  <h1>New Project</h1>
-  <%= render 'form' %>
+  <div class="col-lg-6 col-md-offset-3">
+    <div class="well bs-component">
+      <%= render partial: 'form', locals: { title: 'New Project'} %>
+    </div>
+  </div>
 </div>

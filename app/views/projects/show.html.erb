@@ -1,7 +1,11 @@
 <div class="row">
   <div class="project">
     <div class="col-md-9">
-      <div class="project-name"><%= @project.name %>
+      <div class="project-name">
+        <%= @project.name %>
+        <% if new_request?(@project) %>
+          <%= link_to 'Send requests', project_requests_path(@project), class: 'btn btn-default pull-right', :method => :post %>
+        <% end %>
       </div>
       <div class="description">  
         <%= markdown(@project.description) %>
@@ -24,12 +28,9 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Menu</h3>
+          <h3 class="panel-title">Links</h3>
         </div>
         <div class="panel-body">
-          <% if new_request?(@project) %>
-            <%= link_to 'Send requests', project_requests_path(@project), class: 'menu-link btn', :method => :post %>
-          <% end %>
           <a href="https://<%= @project.slack %>.slack.com" class="menu-link btn"><%= image_tag("slack.svg") %></a>
           <a href="https://trello.com/b/<%= @project.trello %>" class="menu-link btn"><%= image_tag("trello.png") %></a>
         </div>
