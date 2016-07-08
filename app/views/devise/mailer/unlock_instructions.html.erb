@@ -1,3 +1,5 @@
+<div class="col-md-6 col-md-offset-3">
+
 <p><%= t('.greeting', :recipient => @resource.email, :default => "Hello #{@resource.email}!") %></p>
 
 <p><%= t('.message', :default => "Your account has been locked due to an excessive amount of unsuccessful sign in attempts.") %></p>
@@ -5,3 +7,5 @@
 <p><%= t('.instruction', :default => "Click the link below to unlock your account:") %></p>
 
 <p><%= link_to t('.action', :default => "Unlock my account"), unlock_url(@resource, :unlock_token => @resource.unlock_token, locale: I18n.locale) %></p>
+
+</div>
