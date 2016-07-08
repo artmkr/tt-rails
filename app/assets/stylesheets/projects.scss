@@ -16,7 +16,7 @@
 
   .menu-link {
     display: block;
-    background-color: #eee;
+    background-color: $gray-lighter;
     margin-bottom: 10px;
     
     font-size: 20px;
@@ -27,7 +27,7 @@
     }
     
     &:active,&:hover {
-      background-color: #ddd;
+      background-color: $gray-light;
     }
   }
 
