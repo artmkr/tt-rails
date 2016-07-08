@@ -19,7 +19,7 @@
         <div class="panel-body">
           <% @project.memberships.each do |membership| %>
             <div class="user">
-              <img src="http://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle pull-left avatar" alt="Avatar">
+                <%= image_tag(membership.user.avatar_url, :class=> "img-circle avatar pull-left") if membership.user.avatar?%>
               <a href="#" class="name"><%= membership.user.email %></a>
             </div>
           <% end %>            

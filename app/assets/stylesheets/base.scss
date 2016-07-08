@@ -1,21 +1,18 @@
 .footer {
   width: 100%;
   padding: 30px;
-  
-  background-color: $brand-primary;
+  height: 200px;
+  border-top: 1px solid $gray-lighter;
+  background-color: transparent;
+  font-size: 12px;
   .footer-links {
     margin-left:0;
     padding-bottom:15px;
     list-style-type: none;
     padding-left:0;
-    li {
-      display: inline-block;
-      a {
-        color: $gray-lighter;
-      }
-    }
+
     li+li {
-      margin-left: 15px;
+      margin-top: 5px;
     }
   }
 }
@@ -23,7 +20,6 @@
 .clearfix {
   clear: both;
 }
-
 
 // Buttons ====================================================================
 
