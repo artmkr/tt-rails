@@ -31,6 +31,14 @@
         <%= f.text_field :facebook, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= f.label :skype %>
+        <%= f.text_field :skype, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :telegram %>
+        <%= f.text_field :telegram, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i><br />
         <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
       </div>

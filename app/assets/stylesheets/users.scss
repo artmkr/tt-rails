@@ -3,17 +3,83 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .btn-github {
   color: #fff;
+  margin-bottom: 5px; 
   background-color: #444;
   border-color: rgba(0,0,0,0.2);
 }
 
 .btn-github:hover,
+.btn-github:focus,
 .btn-github:active, {
   color: #fff !important;
   background-color: #2b2b2b;
   border-color: rgba(0,0,0,0.2);
 }
 
+.btn-facebook {
+  color: #fff;
+  margin-bottom: 5px; 
+  background-color: #3b5998;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-facebook:hover,
+.btn-facebook:focus,
+.btn-facebook:active, {
+  color: #fff !important;
+  background-color: #30487b;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-twitter {
+  color: #fff;
+  margin-bottom: 5px; 
+  background-color: #2ba9e1;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-twitter:hover,
+.btn-twitter:focus,
+.btn-twitter:active, {
+  color: #fff !important;
+  background-color: #1c92c7;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-telegram {
+  color: #fff;
+  margin-bottom: 5px; 
+  background-color: #35a6de;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-telegram:hover,
+.btn-telegram:focus,
+.btn-telegram:active, {
+  color: #fff !important;
+  background-color: #339ED4;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-skype {
+  color: #fff;
+  margin-bottom: 5px; 
+  background-color: #01aef2;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-skype:hover,
+.btn-skype:focus,
+.btn-skype:active, {
+  color: #fff !important;
+  background-color: #018DC4;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.social-links {
+  max-width: 60%;
+  line-height: 120%;
+}
 
 .avatar {
   max-height: 140px;

@@ -5,26 +5,38 @@
       <h3 class="media-heading">
         <%= @user.name %>
       </h3>
-
-      <% unless @user.twitter.blank? %>
-      <a href="https://twitter.com/<%=@user.twitter %> " class="btn btn-info btn-xs">
-        <i class="fa fa-twitter"></i>
-        Twitter
-      </a>
-      <% end %>
-      <% unless @user.facebook.blank? %>
-      <a href="https://facebook.com/<%=@user.facebook %> " class="btn btn-primary btn-xs">
-        <i class="fa fa-facebook"></i>
-        Facebook
-      </a>
-      <% end %>
-      <% unless @user.github.blank? %>
-      <a href="https://github.com/<%=@user.github %> " class="btn btn-github btn-xs">
-        <i class="fa fa-github"></i>
-        GitHub
-      </a>
-      <% end %>
-
+      <div class="social-links">
+        <% unless @user.twitter.blank? %>
+        <a href="https://twitter.com/<%=@user.twitter %> " class="btn btn-twitter btn-xs">
+          <i class="fa fa-twitter"></i>
+          Twitter
+        </a>
+        <% end %>
+        <% unless @user.facebook.blank? %>
+        <a href="https://facebook.com/<%=@user.facebook %> " class="btn btn-facebook btn-xs">
+          <i class="fa fa-facebook"></i>
+          Facebook
+        </a>
+        <% end %>
+        <% unless @user.github.blank? %>
+        <a href="https://github.com/<%=@user.github %> " class="btn btn-github btn-xs">
+          <i class="fa fa-github"></i>
+          GitHub
+        </a>
+        <% end %>
+        <% unless @user.skype.blank? %>
+        <a href="skype:<%= @user.skype %>?userinfo" class="btn btn-skype btn-xs">
+          <i class="fa fa-skype"></i>
+          Skype
+        </a>
+        <% end %>
+        <% unless @user.telegram.blank? %>
+        <a href="https://telegram.me/<%=@user.telegram %> " class="btn btn-telegram btn-xs">
+          <i class="fa fa-paper-plane"></i>
+          Telegram
+        </a>
+        <% end %>
+      </div>
     </center>
   </div>
   <div class="col-md-8">
