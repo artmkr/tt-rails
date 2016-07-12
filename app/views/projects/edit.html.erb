@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-5 links ">
               <%= link_to 'Accept', accept_project_request_path(request.project,request),class:'btn btn-success',method:'patch' %>
-              <%= link_to 'Accept', decline_project_request_path(request.project,request),class:'btn btn-danger',method:'patch' %>
+              <%= link_to 'Decline', decline_project_request_path(request.project,request),class:'btn btn-danger',method:'patch' %>
             </div>
           </div>
         <% end %>

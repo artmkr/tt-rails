@@ -6,12 +6,12 @@ class MembershipsController < ApplicationController
     unless @membership.user == @project.user
       @membership.destroy
       respond_to do |format|
-        format.html { redirect_to project_path(@project), notice: 'Membership was successfully destroyed.' }
+        format.html { redirect_to edit_project_path(@project), notice: 'Membership was successfully destroyed.' }
         format.json { head :no_content }
       end
     else
      respond_to do |format|
-        format.html { redirect_to project_path(@project), notice: 'You can\'t delete yourself' }
+        format.html { redirect_to edit_project_path(@project), notice: 'You can\'t delete yourself' }
         format.json { head :no_content }
       end
     end 

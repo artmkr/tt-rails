@@ -1,0 +1,42 @@
+<h1>Your pending requests</h1>
+<% unless @pending_requests.blank? %>
+  <% @pending_requests.each do |request|%>
+      <div class="thumbnail">
+      <div class="caption">
+        <%= link_to request.project.name, request.project, class: "project-name" %>
+        <span class="label label-warning pull-right">Pending</span>
+        <br>
+        <%= link_to "Delete request", project_request_url(request.project,request), class:'btn btn-sm btn-default', method:'delete',data: {confirm: "Are you sure?"}%>
+        <p><%= request.project.short_description %></p>
+        <% request.project.tags.each do |tag| %>
+          <span class="label label-default"><%= tag.name %></span>
+        <% end%>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h3>No pending requests</h3>
+<% end %>
+
+
+<h1>History</h1>
+<% unless @old_requests.blank? %>
+  <% @old_requests.each do |request|%>
+      <div class="thumbnail">
+      <div class="caption">
+        <%= link_to request.project.name, request.project, class: "project-name" %>
+        <% if request.status == 'accepted' %>
+          <span class="label label-success pull-right">accepted</span>
+        <% else %>
+          <span class="label label-danger pull-right">declined</span>
+        <% end %>
+        <p><%= request.project.short_description %></p>
+        <% request.project.tags.each do |tag| %>
+          <span class="label label-default"><%= tag.name %></span>
+        <% end%>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h3>No requests</h3>
+<% end %>

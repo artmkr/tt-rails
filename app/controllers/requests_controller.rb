@@ -33,9 +33,9 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @project.save
         @request.update(status: 'accepted') 
-        format.html { redirect_to @project, notice: 'User was successfully added' }
+        format.html { redirect_to edit_project_path(@project), notice: 'User was successfully added' }
       else
-        format.html { redirect_to @project, notice: 'Something went wrong' }
+        format.html { redirect_to edit_project_path(@project), notice: 'Something went wrong' }
       end
     end
   end
@@ -43,7 +43,7 @@ class RequestsController < ApplicationController
   def decline
     @request.update(status: 'declined') 
     respond_to do |format|
-      format.html { redirect_to @project, notice: 'User was successfully declined' }
+      format.html { redirect_to edit_project_path(@project), notice: 'User was successfully declined' }
     end
   end
 
