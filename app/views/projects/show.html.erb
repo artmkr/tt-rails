@@ -6,6 +6,9 @@
         <% if new_request?(@project) %>
           <%= link_to 'Send requests', project_requests_path(@project), class: 'btn btn-default pull-right', :method => :post %>
         <% end %>
+        <% if @project.user == current_user %>
+          <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-default pull-right' %>
+        <% end %>
       </div>
       <div class="description">  
         <%= markdown(@project.description) %>
