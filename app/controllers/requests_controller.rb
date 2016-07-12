@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
   before_action :authorize_author, only: [:accept, :decline]
 
   def create
-    @project.requests.new(user: current_user, status: 'pending')
+    @project.requests.new(user: current_user, status: 'pending', role:request_params[:role])
 
     respond_to do |format|
       if @project.save
@@ -29,7 +29,7 @@ class RequestsController < ApplicationController
   end
 
   def accept
-    @project.memberships.new(user: @request.user)
+    @project.memberships.new(user: @request.user,role: @request.role)
     respond_to do |format|
       if @project.save
         @request.update(status: 'accepted') 
@@ -76,5 +76,10 @@ class RequestsController < ApplicationController
       unless current_user == @project.user 
         redirect_to @project, notice: "Not authorized to accept or decline"
       end 
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def request_params
+      params.require(:request).permit(:role)
     end
 end

@@ -4,7 +4,7 @@
       <div class="project-name">
         <%= @project.name %>
         <% if new_request?(@project) %>
-          <%= link_to 'Send requests', project_requests_path(@project), class: 'btn btn-default pull-right', :method => :post %>
+          <a href="#modal" data-toggle="modal" class="btn btn-default pull-right">Modal</a>
         <% end %>
         <% if @project.user == current_user %>
           <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-default pull-right' %>
@@ -23,7 +23,8 @@
           <% @project.memberships.each do |membership| %>
             <div class="user">
                 <%= image_tag(membership.user.avatar_url, :class=> "img-circle avatar pull-left") if membership.user.avatar?%>
-              <a href="#" class="name"><%= membership.user.email %></a>
+              <%= link_to membership.user.name, membership.user %>
+              <div class="small"><%= membership.role %></div>
             </div>
           <% end %>            
         </div>
@@ -38,6 +39,29 @@
           <a href="https://trello.com/b/<%= @project.trello %>" class="menu-link btn"><%= image_tag("trello.png") %></a>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id='modal'>
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Request</h4>
+      </div>
+        <%= form_for([@project, @project.requests.build],class:'form-horizontal') do |f| %>
+        <div class="modal-body">
+        <div class="form-group">
+          <%= f.label :role,'Your role', :class => "control-label" %>
+          <%= f.text_field :role, class: "form-control",placeholder:'Developer, Designer, etc '  %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Send Request", class:'btn btn-primary'%>
+        </div>
+        </div>
+        <% end %>
     </div>
   </div>
 </div>
