@@ -18,7 +18,9 @@
     <div class="caption">
       <%= link_to project.name, project, class: "project-name" %>
       <p><%= project.short_description %></p>
-      <a href='#' class="label label-default">alice</a>
+      <% project.tags.each do |tag| %>
+        <span class="label label-default"><%= tag.name %></span>
+      <% end%>
     </div>
   </div>
 <% end %>
