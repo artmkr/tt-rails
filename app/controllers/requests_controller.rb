@@ -61,7 +61,7 @@ class RequestsController < ApplicationController
     end
 
     def new_request?
-      if (@project.requests.exists?(user: current_user) || @project.memberships.exists?(user: current_user))
+      if (@project.requests.exists?(user: current_user, status: 'pending') || @project.memberships.exists?(user: current_user))
         redirect_to @project, notice: "Request was already sent"
       end
     end

@@ -52,3 +52,22 @@
   font-size: 200%;
 }
 
+
+.membership,
+.request {
+  margin-bottom: 15px; 
+  .avatar {
+    max-height: 50px;
+    height: auto;
+    margin-right: 10px; 
+  }
+
+  .links {
+    text-align: right;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;   
+  }
+}
+

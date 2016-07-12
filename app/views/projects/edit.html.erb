@@ -1,7 +1,50 @@
 <div class="row">
-  <div class="col-lg-6 col-md-offset-3">
+  <div class="col-md-6">
     <div class="well bs-component">
       <%= render partial:'form',locals: { title: 'Edit Project'}%>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well bs-component">
+      <legend>Requests</legend>
+      <% unless @pending_requests.blank? %>
+        <% @pending_requests.each do |request| %>
+          <div class="row request">
+            <div class="media col-md-7">
+              <div class="media-body">
+                <%= image_tag(request.user.avatar_url, :class=> "img-circle avatar pull-left")%>
+                <h3 class="media-heading"><strong><%= link_to request.user.name, request.user %></strong></h3>
+                <p class="small"><%= request.role %></p>
+              </div>
+            </div>
+            <div class="col-md-5 links ">
+              <%= link_to 'Accept', accept_project_request_path(request.project,request),class:'btn btn-success',method:'patch' %>
+              <%= link_to 'Accept', decline_project_request_path(request.project,request),class:'btn btn-danger',method:'patch' %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+      <h5>Empty</h5>
+      <% end %>
+    </div>
+  </div>
+    <div class="col-md-6">
+    <div class="well bs-component">
+      <legend>Team</legend>
+      <% @project.memberships.each do |membership| %>
+        <div class="row membership">
+          <div class="media col-md-7">
+            <div class="media-body">
+              <%= image_tag(membership.user.avatar_url, :class=> "img-circle avatar pull-left")%>
+              <h3 class="media-heading"><strong><%= link_to membership.user.name, membership.user %></strong></h3>
+              <p class="small"><%= membership.role %></p>
+            </div>
+          </div>
+          <div class="col-md-5 links ">
+            <%= link_to 'Kick', project_membership_path(membership.project,membership),class:'btn btn-danger',method:'delete',data: {confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
