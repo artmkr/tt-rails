@@ -16,6 +16,15 @@
         <%= nav_link 'Users', projects_path %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
+          <ul class="dropdown-menu search-menu">
+            <%= form_tag projects_path, class:'form-inline', :method => 'get' do %>
+              <%= submit_tag "Search", class: 'btn btn-default pull-right', :name => nil %>
+              <%= text_field_tag :search ,params[:search], class:'form-control',placeholder:'comma separated tags' %>
+            <% end %>
+          </ul>
+        </li>
         <% if user_signed_in? %>
             <li class="dropdown">
             <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="true"><%= current_user.name %><span class="caret"></span></a>

@@ -8,7 +8,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.paginate(:page => params[:page])
+    if params[:search]
+      @projects = Project.tagged_with(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+    else 
+      @projects = Project.paginate(:page => params[:page])
+    end 
   end
 
   # GET /projects/1

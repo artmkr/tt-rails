@@ -1,17 +1,19 @@
+<% if current_page?(root_url) %>
 <div class="jumbotron">
   <h1>Projects</h1>
   <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
   <p><a class="btn btn-primary btn-lg">Learn more</a></p>
 </div>
-
-<h1>Latest Projects 
+<% end %>
+<h1 style="overflow:hidden;" ="">Latest Projects 
   <small>
-    <span class="btn-group pull-right">
-      <%= link_to 'New Project', new_project_path , class: 'btn btn-default'%>
-    </span>
+    <% if params[:search] %>
+      tagged with <%= params[:search] %>
+    <% else %>
+      <%= link_to 'New Project', new_project_path , class: 'btn btn-default pull-right'%>
+    <% end %>
   </small>
-</h1>
-
+</h2>
 
 <% @projects.each do |project| %>
   <div class="thumbnail">
@@ -25,4 +27,5 @@
   </div>
 <% end %>
 <%= will_paginate @projects, renderer: BootstrapPagination::Rails %>
+
 

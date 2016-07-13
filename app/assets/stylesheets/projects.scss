@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.search-menu {
+  padding:12px;
+  min-width: 300px;
+}
+
+.navbar-form input[type='text'], .form-inline input {
+  width:auto;
+}
+
 .project {
   .project-name {
     border-bottom: 1px solid #ddd;
