@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show, :index]
   before_action :authorize_user, only: [:edit, :update, :destroy,:bump]
-
+  before_action :confirmed?, only: [:new,:create]
   # GET /projects
   # GET /projects.json
   def index
@@ -109,5 +109,9 @@ class ProjectsController < ApplicationController
     def authorize_user
       @project = current_user.projects.find_by(id: params[:id])
       redirect_to projects_path, notice: "Not authorized to edit this project" if @project.nil?
+    end
+
+    def confirmed?
+      redirect_to root_path, notice: "Confirm your email" unless current_user.confirmed?
     end
 end
