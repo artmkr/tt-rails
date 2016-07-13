@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     if params[:search]
       @projects = Project.tagged_with(params[:search]).order("created_at DESC").paginate(:page => params[:page])
     else 
-      @projects = Project.paginate(:page => params[:page])
+      @projects = Project.order("created_at DESC").paginate(:page => params[:page])
     end 
   end
 
