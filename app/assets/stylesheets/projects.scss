@@ -4,7 +4,7 @@
 
 .search-menu {
   padding:12px;
-  min-width: 300px;
+  min-width: 290px;
 }
 
 .navbar-form input[type='text'], .form-inline input {
@@ -17,6 +17,9 @@
     padding-bottom: 10px;
     line-height: 35px;
     font-size: 300%;
+    .right-menu {
+      margin-left: 10px;
+    }
   }
 
   .menu-link {

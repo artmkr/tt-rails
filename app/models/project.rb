@@ -17,4 +17,8 @@ class Project < ActiveRecord::Base
   acts_as_votable
 
   self.per_page = 10
+
+  before_create do
+    self.bumped_at = DateTime.now
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712103939) do
+ActiveRecord::Schema.define(version: 20160713130600) do
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160712103939) do
     t.integer  "user_id"
     t.string   "trello"
     t.string   "slack"
+    t.datetime "bumped_at"
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"

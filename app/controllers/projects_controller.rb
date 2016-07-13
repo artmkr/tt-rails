@@ -1,17 +1,17 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy,:bump,:like]
   before_action :set_pending_requests, only: [:edit]
 
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :authorize_user, only: [:edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy,:bump]
 
   # GET /projects
   # GET /projects.json
   def index
     if params[:search]
-      @projects = Project.tagged_with(params[:search]).order("created_at DESC").paginate(:page => params[:page])
+      @projects = Project.tagged_with(params[:search]).order("bumped_at DESC").paginate(:page => params[:page])
     else 
-      @projects = Project.order("created_at DESC").paginate(:page => params[:page])
+      @projects = Project.order("bumped_at DESC").paginate(:page => params[:page])
     end 
   end
 
@@ -72,6 +72,23 @@ class ProjectsController < ApplicationController
   def like
     @project.upvote_by current_user
     redirect_to @project
+  end
+
+  def bump
+    if ((DateTime.now.to_i - @project.bumped_at.to_i ) / 1.hours) >= 24 
+      @project.bumped_at = DateTime.now
+      respond_to do |format|
+        if @project.save
+          format.html { redirect_to @project, notice: 'Project was bumped.' }
+        else
+          format.html { redirect_to @project, notice: 'Something went wrong' }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to @project, notice: 'Too early' }
+      end
+    end  
   end
 
   private

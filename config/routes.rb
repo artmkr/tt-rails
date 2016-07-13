@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :projects do
-    resources :notes
-  end
   
   devise_for :users
   resources :users, only: [:show] do 
@@ -12,8 +9,11 @@ Rails.application.routes.draw do
   
   resources :projects do
     member do
-      put "like", to: "projects#like"
+      put 'like', to: "projects#like"
+      put 'bump', to: "projects#bump"
     end
+
+    resources :notes
 
     resources :requests, only: [:create, :destroy] do
       member do
