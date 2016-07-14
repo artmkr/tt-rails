@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user, only: [:show, :index]
   before_action :authorize_author, except: [:show, :index]
+  before_action :confirmed?
 
   # GET projects/1/notes
   def index
@@ -73,5 +74,9 @@ class NotesController < ApplicationController
 
     def authorize_author
       redirect_to projects_path, notice: "Not authorized to edit this note" unless @project.user == current_user
+    end
+
+    def confirmed?
+      redirect_to root_path, notice: "Confirm your email" unless current_user.confirmed?
     end
 end

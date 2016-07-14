@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :confirmed?
   before_action :set_project
   before_action :set_request, only: [:accept, :decline, :destroy]
 
@@ -81,5 +82,9 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.require(:request).permit(:role)
+    end
+
+    def confirmed?
+      redirect_to root_path, notice: "Confirm your email" unless current_user.confirmed?
     end
 end

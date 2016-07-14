@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show, :index]
   before_action :authorize_user, only: [:edit, :update, :destroy,:bump]
-  before_action :confirmed?, only: [:new,:create]
+  before_action :confirmed?, except: [:show, :index]
   # GET /projects
   # GET /projects.json
   def index
