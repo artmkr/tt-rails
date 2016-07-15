@@ -14,44 +14,49 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :name, :class => "control-label col-lg-2" %><br>
+      <%= f.label :name, :class => "control-label col-lg-2" %>
       <div class="col-lg-10">
         <%= f.text_field :name, class: "form-control"  %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :description, :class => "control-label col-lg-2" %><br>
+      <%= f.label :description, :class => "control-label col-lg-2" %>
       <div class="col-lg-10">
         <%= f.text_area :description, class: "form-control"  %>
+        <span class="help-block">Full description of your project. Will be on project page. Markdown allowed</span>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :short_description, :class => "control-label col-lg-2" %><br>
+      <%= f.label :short_description, :class => "control-label col-lg-2" %>
       <div class="col-lg-10">
         <%= f.text_area :short_description, class: "form-control"  %>
+        <span class="help-block">Short description of your project. Will be in projects list</span>
       </div>
     </div>
     
     <div class="form-group">
-      <%= f.label :slack, :class => "control-label col-lg-2" %><br>
+      <%= f.label :slack, :class => "control-label col-lg-2" %>
       <div class="col-lg-10">
         <%= f.text_field :slack, class: "form-control"  %>
+        <span class="help-block">Slack project name</span>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :trello, :class => "control-label col-lg-2" %><br>
+      <%= f.label :trello, :class => "control-label col-lg-2" %>
       <div class="col-lg-10">
         <%= f.text_field :trello, class: "form-control"  %>
+        <span class="help-block">Trello board name</span>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :tag_list, :class => "control-label col-lg-2" %><br>
+      <%= f.label :tag_list, :class => "control-label col-lg-2" %>
       <div class="col-lg-10">
-        <%= f.text_area :tag_list, class: "form-control"  %>
+        <%= f.text_field :tag_list, class: "form-control"  %>
+        <span class="help-block">Tags separated by comma</span>
       </div>
     </div>
 

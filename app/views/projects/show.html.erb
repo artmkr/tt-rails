@@ -32,7 +32,7 @@
           <% end %>            
         </div>
       </div>
-
+      <% unless links_blank?(@project)%>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Links</h3>
@@ -42,6 +42,7 @@
           <a href="https://trello.com/b/<%= @project.trello %>" class="menu-link btn"><%= image_tag("trello.png") %></a>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
