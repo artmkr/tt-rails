@@ -87,6 +87,9 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -104,6 +107,8 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
+    pagedown-bootstrap-rails (2.1.2)
+      railties (> 3.1)
     pkg-config (1.1.7)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -148,6 +153,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     spring (1.7.1)
     sprockets (3.6.2)
       concurrent-ruby (~> 1.0)
@@ -193,11 +201,14 @@ DEPENDENCIES
   high_voltage (~> 3.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-turbolinks
   nested_scaffold
+  pagedown-bootstrap-rails
   rails (= 4.2.6)
   redcarpet
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   spring
   sqlite3
   turbolinks

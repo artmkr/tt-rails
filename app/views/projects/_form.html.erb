@@ -1,68 +1,23 @@
-<%= form_for @project, :html => { :class => "form-horizontal" } do |f| %>
-  <fieldset>
+<%= simple_form_for @project, as: 'user_horizontal', html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form do |f| %>
     <legend><%= title %></legend>
+    <%= f.input :name, class: "form-control"  %>
+    <%= f.input :description, as: :pagedown,input_html: { preview: true, rows: 10 } %>
 
-    <% if @project.errors.any? %>
-      <div class="alert alert-danger fade in" role="alert">
-      <button class="close" data-dismiss="alert">×</button>
-      <ul>
-      <% @project.errors.full_messages.each do |message| %>
-        <li><%= message %></li> 
-      <% end %>
-      </ul>
-      </div>
-    <% end %>
 
-    <div class="form-group">
-      <%= f.label :name, :class => "control-label col-lg-2" %>
-      <div class="col-lg-10">
-        <%= f.text_field :name, class: "form-control"  %>
-      </div>
-    </div>
+    <%= f.input :short_description, class: "form-control", hint: 'Short description of your project. Will be in projects list'  %>
 
-    <div class="form-group">
-      <%= f.label :description, :class => "control-label col-lg-2" %>
-      <div class="col-lg-10">
-        <%= f.text_area :description, class: "form-control"  %>
-        <span class="help-block">Full description of your project. Will be on project page. Markdown allowed</span>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :short_description, :class => "control-label col-lg-2" %>
-      <div class="col-lg-10">
-        <%= f.text_area :short_description, class: "form-control"  %>
-        <span class="help-block">Short description of your project. Will be in projects list</span>
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <%= f.label :slack, :class => "control-label col-lg-2" %>
-      <div class="col-lg-10">
-        <%= f.text_field :slack, class: "form-control"  %>
-        <span class="help-block">Slack project name</span>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :trello, :class => "control-label col-lg-2" %>
-      <div class="col-lg-10">
-        <%= f.text_field :trello, class: "form-control"  %>
-        <span class="help-block">Trello board name</span>
-      </div>
-    </div>
+    <%= f.input :slack, class: "form-control", hint: "Slack project name" %>
 
-    <div class="form-group">
-      <%= f.label :tag_list, :class => "control-label col-lg-2" %>
-      <div class="col-lg-10">
-        <%= f.text_field :tag_list, class: "form-control"  %>
-        <span class="help-block">Tags separated by comma</span>
-      </div>
-    </div>
 
-    <div class="actions">
-      <%= f.submit class:"btn btn-primary" %>
-    </div>
-    
-  </fieldset>
+    <%= f.input :trello, class: "form-control", hint: "Trello board name"  %>
+
+
+
+    <%= f.input :tag_list, class: "form-control", hint: "Tags separated by comma"  %>
+
+    <%= f.submit class:"btn btn-primary" %>
+
 <% end %>
