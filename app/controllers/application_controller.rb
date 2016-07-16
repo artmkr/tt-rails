@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :about, :github, :twitter, :facebook, :avatar,:skype,:telegram])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :about, :github, :twitter, :facebook, :avatar,:skype,:telegram])
-  end
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :about, :github, :twitter, :facebook, :avatar,:skype,:telegram])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :about, :github, :twitter, :facebook, :avatar,:skype,:telegram])
+    end
 end

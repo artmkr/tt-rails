@@ -77,6 +77,6 @@ class NotesController < ApplicationController
     end
 
     def confirmed?
-      redirect_to root_path, notice: "Confirm your email" unless current_user.confirmed?
+      redirect_to root_path, notice: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account." unless current_user.confirmed?
     end
 end
