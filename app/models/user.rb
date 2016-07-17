@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
+
+  def is_admin?
+    self.email && Settings.admins.emails.include?(self.email)
+  end
 end

@@ -67,6 +67,11 @@ gem "font-awesome-rails"
 # Static pages
 gem 'high_voltage', '~> 3.0.0'
 
+# Admin panel
+gem 'activeadmin'
+
+# configs
+gem 'config'
 
 
 group :development, :test do

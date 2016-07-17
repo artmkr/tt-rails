@@ -52,8 +52,10 @@
         <div class="project">
           <h4><%= link_to membership.project.name, membership.project %></h4>
             <p><%= membership.project.short_description %></p>
-            <a href='#' class="label label-default">Tag here</a>
-          <hr>
+            <% membership.project.tags.each do |tag| %>
+              <span class="label label-default"><%= tag.name %></span>
+            <% end%> 
+            <hr>
         </div>
       <% end %>  
     </div>
