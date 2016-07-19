@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  
+
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :users, only: [:show] do 
+  post "create_contact_email" => "contact_mail#create"
+
+
+  resources :users, only: [:show] do
     member do
       get :requests
     end
   end
-  
+
   resources :projects do
     member do
       put 'like', to: "projects#like"
@@ -22,9 +25,9 @@ Rails.application.routes.draw do
         patch :decline
       end
     end
-    
+
     resources :memberships, only: [:destroy]
   end
-  
+
   root 'projects#index'
 end

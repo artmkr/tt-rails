@@ -1,0 +1,30 @@
+<h2>Contact</h2>
+
+<p>
+  <big>
+    We are here to answer any questions you may have. Email us and we'll respond as soon as we can.
+  </big>
+</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="well bs-component">
+      <%= simple_form_for :contact_mail,:url => create_contact_email_path do |f| %>
+      <legend>Send us email</legend>
+      <%= f.input :name, class: "form-control"  %>
+      <%= f.input :email, class: "form-control"  %>
+      <%= f.input :text,:as => :text, class: "form-control"  %>
+      <%= f.submit "Send email", class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h4>Email:</h4>
+    <p><a href='mailto:nuenvio@tempel.tech'>nuenvio@tempel.tech</a></p>
+    <h4>Twitter:</h4>
+    <p><a href='https://twitter.com/nuenvio'>@nuenvio</a></p>
+    <h4>Telegram:</h4>
+    <p><a href="https://telegram.me/artmk">@artmk</a></p>
+  </div>
+</div>
