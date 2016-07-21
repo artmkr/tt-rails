@@ -15,6 +15,11 @@
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= f.label :telegram , 'Telegram username'%>
+        <br><i>We are recommend <a href="https://telegram.org" class="link-success">Telegram</a></i> as main messenger<br>
+        <%= f.text_field :telegram, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :about %>
         <%= f.text_area :about, autofocus: true, class: "form-control" %>
       </div>
@@ -35,10 +40,6 @@
         <%= f.text_field :skype, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :telegram , 'Telegram username'%>
-        <%= f.text_field :telegram, autofocus: true, class: "form-control" %>
-      </div>
-      <div class="form-group">
         <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i><br />
         <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
       </div>
@@ -46,14 +47,14 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, class: "form-control"  %>
       </div>
-      
+
       <div class="form-group">
         <%= f.label :avatar %><br>
         <span class="btn btn-default btn-file">
             Browse        <%= f.file_field :avatar %>
         </span>
-      </div>  
-      
+      </div>
+
 
       <div class="form-group">
         <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i>
