@@ -1,30 +1,171 @@
-<h2>We want to help you find a team</h2>
-<p>
-  <big>
-    Tempel.tech is a place where you can find people which interested in your
-    project.
-  </big>
-</p>
+<div class="tour">
 
-<h2>We want to help you find a project</h2>
-<p>
-  <big>
-    Tempel.tech is a place where you can find project that you are interested in.
-  </big>
-</p>
+  <h1 class="tour-header">Welcome to tempel.tech</h1>
 
-<h2>We want to help you do the best you can </h2>
-<p>
-  <big>
-    Now you do not have to explain every time the structure of your project.
-    Using <span type="button" class="about-notes" data-toggle="tooltip"
-    data-placement="top" title="" data-original-title="Release soon">notes</span>
-    , new team members will be able to quickly dive into the development.
-  </big>
-</p>
+  <p class="tour-subheader">
+    <big>
+      <b>tempel.tech</b>
+      is site where you can find a team.
+      <br>
+      Let me introduce you our main features
+    </big>
+  </p>
 
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
+  <h3>
+    Create Projects
+  </h3>
+  <div class="row block">
+    <div class="col-sm-6">
+      Each project have name, short description, description and tags.
+      <br>
+      Short descirption and tags are located in projects list.
+      <br>
+      Full description and members list are located on project page.
+    </div>
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <div class="caption">
+          <a class="project-name" href="#">tempel.tech</a>
+          <p>Site where you can find a team
+          </p>
+          <span class="label label-default">Ruby</span>
+          <span class="label label-default">Ruby on Rails</span>
+          <span class="label label-default">Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>
+    Edit description
+  </h3>
+  <div class="row block">
+    <div class="col-sm-6">
+      Description will be on project page and it should cover most of all technical details. Supported markdown and have awesome editor. Helps people understand what your project about
+    </div>
+    <div class="col-sm-6">
+      <div id="wmd-button-bar-description"></div>
+      <textarea preview="true" rows="5" class="wmd-input form-control" id="wmd-input-description" name="project[description]">Awesome description</textarea>
+    </div>
+  </div>
+
+  <h3>
+    Manage Requests
+  </h3>
+  <div class="row block">
+    <div class="col-sm-6">
+      When project created anyone can send requests to join it.
+      <br>
+      On edit page you can accept or decline request.
+      <br>
+      After accepting you can contact with any social services you want.
+    </div>
+    <div class="col-sm-6">
+      <div class="well bs-component">
+        <div class="row request">
+          <div class="media col-sm-9">
+            <div class="media-body">
+              <img class="img-circle avatar pull-left" src="/uploads/user/avatar/2/Ran-Segall-Face-Image.jpg" alt="Ran segall face image">
+              <h3 class="media-heading">
+                <a href="/users/2">Adam N.</a>
+              </h3>
+              <p class="small">Developer</p>
+            </div>
+          </div>
+          <div class="col-sm-3 links ">
+            <a class="btn btn-success btn-sm" rel="nofollow" data-method="patch" href="/projects/2/requests/1/accept">
+              <i class="fa fa-check"></i>
+            </a>
+            <a class="btn btn-danger btn-sm" rel="nofollow" data-method="patch" href="/projects/2/requests/1/decline">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>
+    Bump projects
+  </h3>
+  <div class="row block">
+    <div class="col-sm-6">
+      Every new project starts at top of the list and then fall down.
+      <br>
+      Every 24 hours you can bump project to return to the top.
+      <br>
+      Only creator of project can bump it.
+    </div>
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <div class="caption">
+          <div class="project-name">
+            tempel.tech
+            <a class="btn btn-default pull-right right-menu" rel="nofollow" data-method="put" href="/projects/2/bump">Bump project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>
+    Connect with Trello and Slack
+  </h3>
+  <div class="row block">
+    <div class="col-sm-6">
+      Each member of your team have access to links.
+      <br>
+      Share with team project trello board, Slack channel
+      <br>
+      and Telegram join group link.
+    </div>
+    <div class="col-sm-3 col-sm-offset-3 project">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Links</h3>
+        </div>
+        <div class="panel-body">
+          <a href="https://slack.com" class="menu-link btn"><img src="/images/slack.svg" alt="Slack"></a>
+          <a href="https://trello.com/" class="menu-link btn"><img src="/images/trello.png" alt="Trello"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+  <div class="row block">
+    <div class="col-sm-6">
+      <h3>Looking for team</h3>
+      <p>
+        The best way to create popular project is find a team and start developing right now!
+        Do not wait - launch your startup now!
+      </p>
+      <a href="#" class="btn btn-success">Create project</a>
+    </div>
+    <div class="col-sm-6">
+      <h3>Looking for project</h3>
+      <p>
+        Start developing products and learn new technologies right now! <br>
+        The world is at your feet: — you chose where to start
+      </p>
+      <a href="#" class="btn btn-success">Find a team</a>
+    </div>
+  </div>
+<% else %>
+  <h3>
+    You are not logged in
+  </h3>
+  <div class="row block login">
+    <div class="col-sm-5">
+      <a href="#" class="btn btn-primary btn-lg">Sign up</a>
+    </div>
+    <div class="col-sm-2">
+      <big>OR</big>
+    </div>
+    <div class="col-sm-5">
+      <a href="#" class="btn btn-primary btn-lg">Sign in</a>
+    </div>
+  </div>
+</div>
+<% end %>
+
+</div>
