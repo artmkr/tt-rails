@@ -294,3 +294,29 @@ a.list-group-item {
 .about-notes {
   text-decoration: underline;
 }
+
+.tour {
+  max-width: $screen-md;
+  margin: auto;
+
+  .tour-header,.tour-subheader {
+    text-align: center;
+  }
+  .block {
+    border-bottom: 1px solid #e4e6e8;
+    padding-bottom: 20px;
+    &:last-of-type {
+      padding-bottom: 80px;
+      border-bottom: 0;
+    }
+  }
+  &>p {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #e4e6e8;
+  }
+  &>h3 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+}

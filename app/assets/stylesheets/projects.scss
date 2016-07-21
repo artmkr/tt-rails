@@ -26,14 +26,14 @@
     display: block;
     background-color: $gray-lighter;
     margin-bottom: 10px;
-    
+
     font-size: 20px;
 
     img {
       width: auto;
       height: 32px;
     }
-    
+
     &:active,&:hover {
       background-color: $gray-light;
     }
@@ -48,11 +48,11 @@
   }
 
   .user + .user {
-    margin-top: 15px; 
+    margin-top: 15px;
   }
 
   .avatar {
-    margin-right: 10px; 
+    margin-right: 10px;
     max-width: 50px;
     height: auto;
     clear: both;
@@ -67,19 +67,19 @@
 
 .membership,
 .request {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   .avatar {
     max-height: 50px;
     height: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
   }
 
   .links {
     text-align: right;
+    padding-left: 0;
   }
 
   &:last-of-type {
-    margin-bottom: 0;   
+    margin-bottom: 0;
   }
 }
-

@@ -8,42 +8,42 @@
     <div class="well bs-component">
       <legend>Requests</legend>
       <% unless @pending_requests.blank? %>
-        <% @pending_requests.each do |request| %>
-          <div class="row request">
-            <div class="media col-md-7">
-              <div class="media-body">
-                <%= image_tag(request.user.avatar_url, :class=> "img-circle avatar pull-left")%>
-                <h3 class="media-heading"><strong><%= link_to request.user.name, request.user %></strong></h3>
-                <p class="small"><%= request.role %></p>
-              </div>
-            </div>
-            <div class="col-md-5 links ">
-              <%= link_to 'Accept', accept_project_request_path(request.project,request),class:'btn btn-success',method:'patch' %>
-              <%= link_to 'Decline', decline_project_request_path(request.project,request),class:'btn btn-danger',method:'patch' %>
-            </div>
+      <% @pending_requests.each do |request| %>
+      <div class="row request">
+        <div class="media col-md-9">
+          <div class="media-body">
+            <%= image_tag(request.user.avatar_url, :class=> "img-circle avatar pull-left")%>
+            <h3 class="media-heading"><%= link_to request.user.name, request.user %></h3>
+            <p class="small"><%= request.role %></p>
           </div>
-        <% end %>
-      <% else %>
+        </div>
+        <div class="col-md-3 links ">
+            <%= link_to accept_project_request_path(request.project,request),class:'btn btn-success btn-sm',method:'patch' do %><i class="fa fa-check"></i><% end %>
+            <%= link_to decline_project_request_path(request.project,request),class:'btn btn-danger btn-sm',method:'patch' do %><i class="fa fa-times"></i><% end %>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
       <h5>Empty</h5>
       <% end %>
     </div>
   </div>
-    <div class="col-md-4">
+  <div class="col-md-4">
     <div class="well bs-component">
       <legend>Team</legend>
       <% @project.memberships.each do |membership| %>
-        <div class="row membership">
-          <div class="media col-md-7">
-            <div class="media-body">
-              <%= image_tag(membership.user.avatar_url, :class=> "img-circle avatar pull-left")%>
-              <h3 class="media-heading"><strong><%= link_to membership.user.name, membership.user %></strong></h3>
-              <p class="small"><%= membership.role %></p>
-            </div>
-          </div>
-          <div class="col-md-5 links ">
-            <%= link_to 'Kick', project_membership_path(membership.project,membership),class:'btn btn-danger',method:'delete',data: {confirm: "Are you sure?"} %>
+      <div class="row membership">
+        <div class="media col-md-7">
+          <div class="media-body">
+            <%= image_tag(membership.user.avatar_url, :class=> "img-circle avatar pull-left")%>
+            <h3 class="media-heading"><%= link_to membership.user.name, membership.user %></h3>
+            <p class="small"><%= membership.role %></p>
           </div>
         </div>
+        <div class="col-md-5 links ">
+          <%= link_to project_membership_path(membership.project,membership),class:'btn btn-danger',method:'delete',data: {confirm: "Are you sure?"} do%><i class="fa fa-times"></i><% end %>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
