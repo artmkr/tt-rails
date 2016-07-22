@@ -67,18 +67,18 @@
         <div class="row request">
           <div class="media col-sm-9">
             <div class="media-body">
-              <img class="img-circle avatar pull-left" src="/uploads/user/avatar/2/Ran-Segall-Face-Image.jpg" alt="Ran segall face image">
+              <img class="img-circle avatar pull-left" src="/images/face.jpg">
               <h3 class="media-heading">
-                <a href="/users/2">Adam N.</a>
+                <a href="#">Adam N.</a>
               </h3>
               <p class="small">Developer</p>
             </div>
           </div>
           <div class="col-sm-3 links ">
-            <a class="btn btn-success btn-sm" rel="nofollow" data-method="patch" href="/projects/2/requests/1/accept">
+            <a class="btn btn-success btn-sm" rel="nofollow" data-method="patch" href="#">
               <i class="fa fa-check"></i>
             </a>
-            <a class="btn btn-danger btn-sm" rel="nofollow" data-method="patch" href="/projects/2/requests/1/decline">
+            <a class="btn btn-danger btn-sm" rel="nofollow" data-method="patch" href="#">
               <i class="fa fa-times"></i>
             </a>
           </div>
@@ -103,7 +103,7 @@
         <div class="caption">
           <div class="project-name">
             tempel.tech
-            <a class="btn btn-default pull-right right-menu" rel="nofollow" data-method="put" href="/projects/2/bump">Bump project</a>
+            <a class="btn btn-default pull-right right-menu" rel="nofollow" data-method="put" href="#">Bump project</a>
           </div>
         </div>
       </div>
@@ -141,15 +141,14 @@
         The best way to create popular project is find a team and start developing right now!
         Do not wait - launch your startup now!
       </p>
-      <a href="#" class="btn btn-success">Create project</a>
-    </div>
+      <%= link_to 'Create project', new_project_path ,class: "btn btn-success" %>    </div>
     <div class="col-sm-6">
       <h3>Looking for project</h3>
       <p>
         Start developing products and learn new technologies right now! <br>
         The world is at your feet: — you chose where to start
       </p>
-      <a href="#" class="btn btn-success">Find a team</a>
+      <%= link_to 'Find a team', projects_path ,class: "btn btn-success" %>
     </div>
   </div>
 <% else %>
@@ -158,13 +157,13 @@
   </h3>
   <div class="row block login">
     <div class="col-sm-5">
-      <a href="#" class="btn btn-primary btn-lg">Sign up</a>
+      <%= link_to 'Sign In', new_user_session_path,class: "btn btn-primary btn-lg" %>
     </div>
     <div class="col-sm-2">
       <big>OR</big>
     </div>
     <div class="col-sm-5">
-      <a href="#" class="btn btn-primary btn-lg">Sign in</a>
+      <%= link_to 'Sign Up', new_user_registration_path ,class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 </div>
