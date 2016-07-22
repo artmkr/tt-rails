@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -28,8 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -59,7 +57,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 #likes
 gem 'acts_as_votable', '~> 0.10.0'
 
-# Bootstrap 
+# Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise-bootstrap-views'
 gem "font-awesome-rails"
@@ -82,10 +80,22 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  
+
   gem 'nested_scaffold'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'sqlite3'
+
+  gem "capistrano-bundler", :require => false
+  gem "capistrano-rails", :require => false
+  gem "capistrano", "~> 3.4.0", :require => false
+  gem "capistrano-mb", :require => false
 end
 
+gem "dotenv-rails", ">= 2.0.0"
+
+group :production do
+  gem "pg", "~> 0.18"
+  gem 'unicorn'
+end
