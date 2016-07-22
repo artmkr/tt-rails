@@ -82,6 +82,8 @@ GEM
     capistrano-rails (1.1.7)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rails-console (1.0.2)
+      capistrano (>= 3.1.0, < 4.0.0)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -274,6 +276,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-mb
   capistrano-rails
+  capistrano-rails-console
   carrierwave
   coffee-rails (~> 4.1.0)
   config

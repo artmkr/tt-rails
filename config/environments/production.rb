@@ -84,7 +84,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      ENV['SENDMAIL_USERNAME'],
     password:       ENV['SENDMAIL_PASSWORD'],
-    domain:         'tempel.tech',
+    domain:         ENV['MAIL_HOST'],
     address:       'smtp.mailgun.or',
     port:          '587',
     authentication: :plain,
