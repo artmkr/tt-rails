@@ -1,23 +1,22 @@
 <footer class="footer">
   <div class="container">
     <div class="clearfix" >
-      <ul class="footer-links col-xs-4 col-md-2">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">GitHub</a></li>
+      <ul class="footer-links col-xs-6 col-md-2">
+        <li> <%= link_to "About", page_path('about')%></li>
+        <li> <%= link_to "Contact", page_path('contact')%></li>
+        <li> <%= link_to "Contribute", page_path('contribution')%></li>
       </ul>
-      <ul class="footer-links col-xs-4 col-md-2">
-        <li><a href="#">Solution</a></li>
-        <li><a href="#">Hosting</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Company</a></li>
+      <ul class="footer-links col-xs-6 col-md-2">
+        <li><a href="https://twitter.com/nuenvio">Twitter</a></li>
+        <li> <%= link_to "Blog", page_path('blog')%></li>
+        <li> <%= link_to "GitHub", page_path('github')%></li>
       </ul>
-      <ul class="footer-links col-xs-4 col-md-8">
+      <!-- <ul class="footer-links col-xs-4 col-md-8">
         <li><a href="#">Press</a></li>
         <li><a href="#">Cultires</a></li>
         <li><a href="#">Careers</a></li>
-      </ul>
+      </ul> -->
     </div>
-    <div class="text-muted ">Temepel.tech &copy; 2016. Designed and built by @nuenvio.</div>
+    <div class="text-muted ">Temepel.tech &copy; 2016. Designed and built by <%= link_to '@nuenvio', user_path(id:1)%>.</div>
   </div>
 </footer>
