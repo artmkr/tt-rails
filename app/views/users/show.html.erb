@@ -3,7 +3,8 @@
     <center>
       <%= image_tag(@user.avatar_url, :class=> "img-circle avatar")%>
       <h3 class="media-heading">
-        <%= @user.name %>
+        <%= @user.name %> <br>
+        <small><%= @user.email %></small>
       </h3>
       <div class="social-links">
         <% unless @user.twitter.blank? %>
@@ -54,10 +55,10 @@
             <p><%= membership.project.short_description %></p>
             <% membership.project.tags.each do |tag| %>
               <span class="label label-default"><%= tag.name %></span>
-            <% end%> 
+            <% end%>
             <hr>
         </div>
-      <% end %>  
+      <% end %>
     </div>
   </div>
 </div>
